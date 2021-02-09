@@ -87,7 +87,7 @@ class OrderingView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
         return self.request.user.groups.filter(name='chef').exists()
 
 
-class UpdateMenuView(LoginRequiredMixin, UserPassesTestMixin, UpdateMenuView):
+class UpdateMenuView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
     def test_func(self):
         return self.request.user.groups.filter(name='chef').exists()
