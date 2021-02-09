@@ -13,7 +13,6 @@
     <div class="row">
         {% for menu in ObjectMenuManage %}
           <div class="card float-left" style="width: 15rem; height: 22rem; margin-right: 10px">
-            
             {% if menu.img_menu %}
               <img class="card-img-top mx-auto mt-2 " src="{{menu.img_menu.url}}" alt="{{menu.img_menu}}" style="width: 10rem; height:10rem">
             {% else %}
