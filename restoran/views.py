@@ -80,9 +80,17 @@ class OrderMenuView(ListView):
         return context
 
 
-# class TambahMenuView(CreateView):
-#     form_class = MenuForm
-#     template_name = 'create.html'
+class OrderingView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
+    template_name = 'ordering.html'
+
+    def test_func(self):
+        return self.request.user.groups.filter(name='chef').exists()
+
+
+class UpdateMenuView(LoginRequiredMixin, UserPassesTestMixin, UpdateMenuView):
+
+    def test_func(self):
+        return self.request.user.groups.filter(name='chef').exists()
 
 
 class LoginView(TemplateView):
